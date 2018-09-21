@@ -56,7 +56,7 @@
      <Compile Include="Assets\Scripts\Card.cs" />
      <Compile Include="Assets\Scripts\CardController.cs" />
      <Compile Include="Assets\Scripts\CardData.cs" />
-     <Compile Include="Assets\Scripts\MainController.cs" />
+     <Compile Include="Assets\Scripts\GameSceneController.cs" />
      <Compile Include="Assets\Scripts\ResultController.cs" />
      <Compile Include="Assets\Scripts\TitleController.cs" />
  <Reference Include="UnityEditor.StandardEvents">

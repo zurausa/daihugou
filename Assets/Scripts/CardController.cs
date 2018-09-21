@@ -50,8 +50,8 @@ public class CardController : MonoBehaviour {
 	void Initialize() {
 		var allCardDataList = new List<CardData> ();
 
-		for (int i = 0; i < CardData.TRUMP_CNT - 1; ++i) {
-			var cardData = new CardData (i / CardData.MAX_NUM, i % CardData.MAX_NUM + 1);
+		for (int i = 0; i < CardData.TRUMP_COUNT - 1; ++i) {
+			var cardData = new CardData (i / CardData.MAX_NUMBER, i % CardData.MAX_NUMBER + 1);
 			allCardDataList.Add (cardData);
 		}
 		allCardDataList.Add (new CardData (CardData.SUIT_JOKER, 0));
@@ -65,12 +65,12 @@ public class CardController : MonoBehaviour {
 		}
 
 		for (int i = 0; i < PLAYER_NUM; ++i) {
-			var list = allCardDataList.GetRange (i * CardData.MAX_NUM, CardData.MAX_NUM);
+			var list = allCardDataList.GetRange (i * CardData.MAX_NUMBER, CardData.MAX_NUMBER);
 			if (i == 0) {
 				list.Add (allCardDataList [allCardDataList.Count - 1]);
 			}
 			var sortedCardList = list.OrderBy (x => x.power);
-
+			
 			// カード生成
 			var cardList = new List<Card>();
 			foreach(var data in sortedCardList) {
@@ -165,13 +165,13 @@ public class CardController : MonoBehaviour {
 
 	IEnumerator Test() {
 		int count = 1;
-		while (count < CardData.TRUMP_CNT) {
+		while (count < CardData.TRUMP_COUNT) {
 			foreach (var cardList in playersCardList) {
 				bool isHit = false;
 				Card hitCard = null;
 
 				foreach (var card in cardList) {
-					if (card.data.suit * CardData.MAX_NUM + card.data.number == count) {
+					if (card.data.suit * CardData.MAX_NUMBER + card.data.number == count) {
 						isHit = true;
 						hitCard = card;
 						break;
